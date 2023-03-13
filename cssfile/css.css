@@ -1,0 +1,259 @@
+:root {
+  --bgColor: #122447;
+  --formColor: #146480;
+  --txcolor: #20dad8;
+  --GreenColor: #03fe47;
+  --RedColor: #db012a;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.Container {
+  padding: 0px 20px;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .Container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .Container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .Container {
+    width: 1170px;
+  }
+}
+body {
+  width: 100%;
+  background-color: var(--bgColor);
+  height: 100vh;
+  font-family: "Changa", sans-serif;
+}
+.login {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 500px;
+  max-width: 400px;
+  padding: 4px;
+  overflow: hidden;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  box-shadow: 0px 0px 39px 6px rgba(32, 218, 216, 1),
+    8px 8px 20px 9px rgba(32, 218, 216, 1);
+  box-shadow: 0px 0px 39px 6px rgba(32, 218, 216, 1),
+    8px 8px 20px 9px rgba(32, 218, 216, 1);
+}
+.login form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  background-color: var(--bgColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+}
+.login::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: var(--RedColor);
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform-origin: top left;
+  animation: Rotate 7s infinite linear;
+  animation-delay: -3.5s;
+}
+.login::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background-color: var(--GreenColor);
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform-origin: top left;
+  animation: Rotate 7s infinite linear;
+}
+@keyframes Rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+form h3 {
+  color: var(--RedColor);
+  font-size: 40px;
+}
+form h3 span {
+  color: var(--GreenColor);
+}
+.email,
+.password {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--txcolor);
+  width: 80%;
+  cursor: pointer;
+}
+
+.email input,
+.password input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 30px;
+  padding: 0px 5px;
+  font-size: 15px;
+  transition: 1s;
+}
+.email i,
+.password i {
+  font-size: 16px;
+}
+.email input {
+  color: var(--GreenColor);
+}
+.password input {
+  color: var(--RedColor);
+}
+.email i,
+.email label {
+  color: var(--GreenColor);
+}
+.password i,
+.password label {
+  color: var(--RedColor);
+}
+.email label,
+.password label {
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  font-weight: bold;
+}
+.Btn {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.7s;
+  z-index: 50;
+  border-radius: 30px;
+}
+.Btn::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--GreenColor);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.Btn::after {
+  content: "";
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--RedColor);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.Btn:hover {
+  color: var(--bgColor);
+}
+.Btn:hover::after {
+  animation: goLeft 0.5s linear forwards;
+}
+.Btn:hover::before {
+  animation: goRight 0.5s linear forwards;
+}
+@keyframes goLeft {
+  50% {
+    right: 0;
+  }
+  100% {
+    right: 0;
+    z-index: -1;
+    border-radius: 0px 30px 30px 0;
+    width: 50.5%;
+    height: 100%;
+  }
+}
+@keyframes goRight {
+  50% {
+    left: 0;
+  }
+  100% {
+    left: 0;
+    z-index: -1;
+    border-radius: 30px 0px 0px 30px;
+    width: 50.5%;
+    height: 100%;
+  }
+}
+.Btn input {
+  width: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  border: 3px solid var(--txcolor);
+  color: var(--txcolor);
+  font-size: 15px;
+  font-weight: bold;
+  outline: none;
+  height: 50px;
+  border-radius: 30px;
+  transition: 0.5s;
+  position: relative;
+  z-index: 20;
+}
+.Btn:hover input {
+  color: var(--bgColor);
+}
+.textForm {
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  position: relative;
+  transform: translateY(-25px);
+}
+.textForm a:nth-child(1) {
+  color: var(--RedColor);
+}
+.textForm a:nth-child(2) {
+  color: var(--GreenColor);
+}
+.toUp {
+  top: -25px;
+}
